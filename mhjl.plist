@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>com.canglang.gold12</string>
+	<string>com.canglang.gold60</string>
+	<string>com.canglang.gold130</string>
+	<string>com.canglang.gold196</string>
+	<string>com.canglang.gold396</string>
+	<string>com.canglang.gold656</string>
+	<string>com.canglang.gold1296</string>
+	<string>com.canglang.card5</string>
+	<string>com.canglang.card6</string>
+</array>
+</plist>

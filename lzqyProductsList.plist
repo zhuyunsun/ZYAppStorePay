@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>com.starsjoys.canglang.lzqyios.gold6</string>
+	<string>com.starsjoys.canglang.lzqyios.gold30</string>
+	<string>com.starsjoys.canglang.lzqyios.gold60</string>
+	<string>com.starsjoys.canglang.lzqyios.gold98</string>
+	<string>com.starsjoys.canglang.lzqyios.gold198</string>
+	<string>com.starsjoys.canglang.lzqyios.gold328</string>
+	<string>com.starsjoys.canglang.lzqyios.gold648</string>
+	<string>com.starsjoys.canglang.lzqyios.card1</string>
+	<string>com.starsjoys.canglang.lzqyios.card2</string>
+	<string>com.starsjoys.canglang.lzqyios.card3</string>
+	<string>com.starsjoys.canglang.lzqyios.card4</string>
+</array>
+</plist>
