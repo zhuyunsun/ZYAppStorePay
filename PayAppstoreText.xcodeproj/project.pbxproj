@@ -23,6 +23,8 @@
 		8F577D361E1363CC00645837 /* xwzmen.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F577D351E1363CC00645837 /* xwzmen.plist */; };
 		8F58899A1E1F4193005D030B /* KeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5889991E1F4193005D030B /* KeyChainHelper.m */; };
 		8F7816BD1E2C818F005B4390 /* mhjl.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F7816BC1E2C818F005B4390 /* mhjl.plist */; };
+		FE18D5BC1EBADAFA0047EE3A /* UIView+ZYHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE18D5B91EBADAFA0047EE3A /* UIView+ZYHUD.m */; };
+		FE18D5BD1EBADAFA0047EE3A /* ZYMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE18D5BB1EBADAFA0047EE3A /* ZYMBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,10 @@
 		8F5889981E1F4193005D030B /* KeyChainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainHelper.h; sourceTree = "<group>"; };
 		8F5889991E1F4193005D030B /* KeyChainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainHelper.m; sourceTree = "<group>"; };
 		8F7816BC1E2C818F005B4390 /* mhjl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mhjl.plist; sourceTree = "<group>"; };
+		FE18D5B81EBADAFA0047EE3A /* UIView+ZYHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYHUD.h"; sourceTree = "<group>"; };
+		FE18D5B91EBADAFA0047EE3A /* UIView+ZYHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYHUD.m"; sourceTree = "<group>"; };
+		FE18D5BA1EBADAFA0047EE3A /* ZYMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMBProgressHUD.h; sourceTree = "<group>"; };
+		FE18D5BB1EBADAFA0047EE3A /* ZYMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 		8F4C43FB1DE80D58003E014E /* PayAppstoreText */ = {
 			isa = PBXGroup;
 			children = (
+				FE18D5B71EBADAFA0047EE3A /* ZYHUD */,
 				8F1BD8861DED7ED400A4C14E /* SJAppStorePay.h */,
 				8F1BD8871DED7ED400A4C14E /* SJAppStorePay.m */,
 				8F4C43FF1DE80D58003E014E /* AppDelegate.h */,
@@ -183,6 +190,17 @@
 				8F5889991E1F4193005D030B /* KeyChainHelper.m */,
 			);
 			path = "UUID+KeyChain";
+			sourceTree = "<group>";
+		};
+		FE18D5B71EBADAFA0047EE3A /* ZYHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FE18D5B81EBADAFA0047EE3A /* UIView+ZYHUD.h */,
+				FE18D5B91EBADAFA0047EE3A /* UIView+ZYHUD.m */,
+				FE18D5BA1EBADAFA0047EE3A /* ZYMBProgressHUD.h */,
+				FE18D5BB1EBADAFA0047EE3A /* ZYMBProgressHUD.m */,
+			);
+			path = ZYHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,7 +270,7 @@
 				TargetAttributes = {
 					8F4C43F81DE80D58003E014E = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 2NYG7Y3BS3;
+						DevelopmentTeam = 6NZL4E3LL7;
 						ProvisioningStyle = Manual;
 					};
 					8F4C44111DE80D58003E014E = {
@@ -329,7 +347,9 @@
 				8F4C44041DE80D58003E014E /* ViewController.m in Sources */,
 				8F4C44011DE80D58003E014E /* AppDelegate.m in Sources */,
 				8F4C43FE1DE80D58003E014E /* main.m in Sources */,
+				FE18D5BC1EBADAFA0047EE3A /* UIView+ZYHUD.m in Sources */,
 				8F58899A1E1F4193005D030B /* KeyChainHelper.m in Sources */,
+				FE18D5BD1EBADAFA0047EE3A /* ZYMBProgressHUD.m in Sources */,
 				8F1BD8881DED7ED400A4C14E /* SJAppStorePay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,14 +500,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2NYG7Y3BS3;
+				DEVELOPMENT_TEAM = 6NZL4E3LL7;
 				INFOPLIST_FILE = PayAppstoreText/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qygame.shenhuaqiyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junhai.starsjoys.ttzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30c5cae6-f934-4e91-8bc7-1e0010f9c5e1";
-				PROVISIONING_PROFILE_SPECIFIER = shenhuaqiyue_dev;
+				PROVISIONING_PROFILE = "f153e26a-a6b1-47b2-a559-960ac29aa19e";
+				PROVISIONING_PROFILE_SPECIFIER = "ttzg-Development";
 			};
 			name = Debug;
 		};
@@ -496,14 +516,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2NYG7Y3BS3;
+				DEVELOPMENT_TEAM = 6NZL4E3LL7;
 				INFOPLIST_FILE = PayAppstoreText/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qygame.shenhuaqiyue;
+				PRODUCT_BUNDLE_IDENTIFIER = com.junhai.starsjoys.ttzg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30c5cae6-f934-4e91-8bc7-1e0010f9c5e1";
-				PROVISIONING_PROFILE_SPECIFIER = shenhuaqiyue_dev;
+				PROVISIONING_PROFILE = "f153e26a-a6b1-47b2-a559-960ac29aa19e";
+				PROVISIONING_PROFILE_SPECIFIER = "ttzg-Development";
 			};
 			name = Release;
 		};

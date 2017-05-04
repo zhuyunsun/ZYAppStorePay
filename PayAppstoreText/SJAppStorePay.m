@@ -44,6 +44,7 @@
 }
 -(void)requestDidFinish:(SKRequest *)request{
     //请求完成
+    NSLog(@"请求完成");
 }
 #pragma mark -- SKPaymentTransactionObserver delegate
 //监听购买结果

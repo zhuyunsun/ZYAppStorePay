@@ -9,24 +9,59 @@
 #import "ViewController.h"
 #import <StoreKit/StoreKit.h>
 #import "SJAppStorePay.h"
-
-@interface ViewController ()<SJAppStoreDelegate>
+#import "UIView+ZYHUD.h"
+@interface ViewController ()<SJAppStoreDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)id product1;
+@property(nonatomic,strong)NSMutableArray * dataSource;
 @end
 
 @implementation ViewController
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    if (self.product1 != nil) {
-         [[SJAppStorePay sharedInstance] getAppStorePay:self.product1];
-    }else{
-        NSLog(@"还没请求到购买的内购产品！?");
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * cells = @"ssss";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cells];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cells];
     }
-   
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"获取内购产品";
+    }else{
+       SKProduct * product = self.dataSource[indexPath.row - 1];
+//    NSLog(@"产品描述 = %@",product.localizedTitle);
+       cell.textLabel.text = product.localizedTitle;
+    }
+    return cell;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count + 1;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        [self getAction];
+    }else{
+     SKProduct * product = self.dataSource[indexPath.row - 1];
+     [[SJAppStorePay sharedInstance] getAppStorePay:product];
+    }
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+}
+-(UITableView *)MyTableView{
+    if (_MyTableView == nil) {
+        _MyTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 69, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 69)];
+        _MyTableView.dataSource = self;
+        _MyTableView.delegate = self;
+        [self.view addSubview:_MyTableView];
+    }
+    return _MyTableView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"内购测试";
     self.view.backgroundColor = [UIColor whiteColor];
+    [self getAction];
+}
+-(void)getAction{
+    [self.view showHudInView:self.view hint:@"获取中..."];
     NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"xwzmen" ofType:@"plist"];
     NSArray * arrya1 = [NSArray arrayWithContentsOfFile:plistPath];
     NSLog(@"array1 = %@",arrya1);
@@ -38,11 +73,13 @@
         SKProduct * product = productsArr[i];
         NSLog(@"产品描述 = %@",product.localizedTitle);
     }
-     self.product1 = productsArr[1];
-    [[SJAppStorePay sharedInstance] getAppStorePay:productsArr[1]];
+    self.dataSource = [NSMutableArray arrayWithArray:productsArr];
+    [self.MyTableView reloadData];
+    [self.view hideHud];
 }
 -(void)onGetFail:(NSString *)failCode{
     NSLog(@"%@",failCode);
+    [self.view hideHud];
 }
 -(void)onAppStorePayFail{
     NSLog(@"内购失败");
